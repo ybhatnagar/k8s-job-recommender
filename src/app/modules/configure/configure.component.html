@@ -1,0 +1,24 @@
+<div>
+  <div class="card-header">
+    Configure Settings
+  </div>
+  <form clrForm>
+    <span class="clr-sr-only">Tabbing through form inputs will trigger validation messages to be read aloud.</span>
+    <clr-input-container>
+      <label>Hourly</label>
+      <input clrInput type="text" [(ngModel)]="firstName" name="firstName" required />
+      <clr-control-error>We need your Setting for legal compliance</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+      <label>Setting 2</label>
+      <input clrInput type="text" [(ngModel)]="midleName" name="midleName" />
+    </clr-input-container>
+    <clr-input-container>
+      <label>Setting 3</label>
+      <input clrInput type="text" [(ngModel)]="lastName" name="lastName" required />
+      <clr-control-error>We need your Setting for legal compliance</clr-control-error>
+    </clr-input-container>
+  </form>
+  <button class="btn btn-primary" type="submit" (click)="submit()">Submit</button>
+
+</div>

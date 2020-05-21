@@ -1,0 +1,18 @@
+[
+  {
+    "pod": "vmw-costing1",
+    "currentNode": "From Pod",
+    "recommendedNode": "To Job",
+    "costSavings": 120,
+    "latencyImprovement": "2 PM IST",
+    "apps": "vmw-benchmark2"
+  },
+  {
+    "pod": "vmw-benchmark2",
+    "currentNode": "From Deployment",
+    "recommendedNode": "To Job",
+    "costSavings": 130.141,
+    "latencyImprovement": "2 PM IST",
+    "apps": "vmw-costing1"
+  }
+]

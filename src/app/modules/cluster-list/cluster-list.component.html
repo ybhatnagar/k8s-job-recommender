@@ -1,0 +1,156 @@
+<div>
+  <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+    <h2 class="cluster-title">Clusters</h2>
+    <div>
+      <button class="btn btn-outline" style="margin-left:100px" (click)="openNewClusters = true">
+        <clr-icon shape="plus"></clr-icon>
+        ADD CLUSTER
+      </button>
+      <!-- <button class="btn btn-outline" (click)="openConfiguration = true">
+        <clr-icon shape="cog"></clr-icon>
+        Configure
+      </button> -->
+    </div>
+  </div>
+  <div>
+    <div *ngFor="let cluster of clusterList" class="cluster-wrapper">
+      <cluster-card [cluster]="cluster"></cluster-card>
+    </div>
+  </div>
+
+
+  <button class="btn btn-primary" [disabled]="!isSelected()" (click)="openConfiguration = true" >Strategic Workload choreography</button>
+  <button class="btn btn-primary" [disabled]="!isSelected()" (click)="openMaintenance = true">Maintenance Interval</button>
+  <button class="btn btn-primary" [disabled]="true" (click)="onAnalyise()">Anomaly Detection (Coming soon)</button>
+
+</div>
+
+<clr-modal [(clrModalOpen)]="openNewClusters">
+  <h3 class="modal-title">Add New Kubernetes Cluster</h3>
+  <div class="modal-body">
+    <form clrForm>
+      <clr-input-container>
+        <label class="clr-col-md-4">Master Node URL</label>
+        <input clrInput placeholder="http://127.0.0.1:8080" name="name" [(ngModel)]="name" />
+      </clr-input-container>
+      <clr-input-container>
+        <label class="clr-col-md-4">Username</label>
+        <input clrInput placeholder="username" name="usname" [(ngModel)]="usname" />
+      </clr-input-container>
+      <clr-input-container>
+        <label class="clr-col-md-4">Password</label>
+        <input clrInput placeholder="password" name="pass" [(ngModel)]="pass" />
+      </clr-input-container>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="openNewClusters = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="openNewClusters = false">Save</button>
+  </div>
+</clr-modal>
+
+<clr-modal [(clrModalOpen)]="openMaintenance">
+    <h3 class="modal-title">How much time your maintenance will need?</h3>
+    <div class="modal-body">
+      <form clrForm>
+        
+        <clr-input-container>
+          <label class="clr-col-md-4">Maintenance Time</label>
+          <input clrInput placeholder="30 Mins" name="usname" [(ngModel)]="usname" />
+        </clr-input-container>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline" (click)="openMaintenance = false">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="onMaintain()">Analyze</button>
+    </div>
+  </clr-modal>
+<div class="modal-dialog modal-xl">
+  <clr-modal [(clrModalOpen)]="openConfiguration">
+    <h3 class="modal-title">Add Configuration</h3>
+    <div class="modal-body">
+      <form clrForm>
+        <clr-input-container>
+          <label class="clr-col-md-4">Consider Resources:</label>
+
+        </clr-input-container>
+        <clr-checkbox-container style="margin-top: -20px;
+    margin-left: 150px;">
+          <clr-checkbox-wrapper>
+            <input type="checkbox" clrCheckbox value="option1" name="options" checked />
+            <label> CPU</label>
+          </clr-checkbox-wrapper>
+          <clr-checkbox-wrapper>
+            <input type="checkbox" clrCheckbox value="option2" name="options" checked />
+            <label>Memory</label>
+          </clr-checkbox-wrapper>
+          <clr-checkbox-wrapper>
+            <input type="checkbox" clrCheckbox value="option1" name="options" checked />
+            <label> Disk</label>
+          </clr-checkbox-wrapper>
+          <clr-checkbox-wrapper>
+            <input type="checkbox" clrCheckbox value="option2" name="options" checked />
+            <label>Network</label>
+          </clr-checkbox-wrapper>
+          <clr-checkbox-wrapper>
+            <input type="checkbox" clrCheckbox value="option2" name="options" checked />
+            <label>I/O</label>
+          </clr-checkbox-wrapper>
+        </clr-checkbox-container>
+
+
+        <clr-input-container>
+          <label class="clr-col-md-4">Data consideration interval</label>
+          <input clrInput placeholder="7 Days" name="pass" [(ngModel)]="pass" />
+
+        </clr-input-container>
+        <clr-date-container>
+          <label>Start Date</label>
+          <input type="date" clrDate name="demo" [(ngModel)]="demo">
+        </clr-date-container>
+        <clr-date-container>
+          <label>End Date</label>
+          <input type="date" clrDate name="demo" [(ngModel)]="demo">
+        </clr-date-container>
+        <clr-input-container>
+          <label class="clr-col-md-4">Threshold Seasonality Accuracy</label>
+          <input clrInput placeholder="Hour/Min/Day" name="pass" [(ngModel)]="pass" />
+        </clr-input-container>
+        <clr-input-container>
+          <label class="clr-col-md-4">Threshold Confidence</label>
+          <input clrInput placeholder="80%" name="pass" [(ngModel)]="pass" />
+        </clr-input-container>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline" (click)="openConfiguration = false">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="onAnalyise()">Analyze</button>
+    </div>
+  </clr-modal>
+</div>
+
+<clr-modal [(clrModalOpen)]="basic">
+  <div class="modal-body">
+
+    <clr-datagrid>
+      <clr-dg-column>User ID</clr-dg-column>
+      <clr-dg-column>Name</clr-dg-column>
+      <clr-dg-column>Creation date</clr-dg-column>
+      <clr-dg-column>Favorite color</clr-dg-column>
+
+      <clr-dg-row *ngFor="let cl of clusterList">
+        <clr-dg-cell>{{cl.podName}}</clr-dg-cell>
+        <clr-dg-cell>{{cl.nodeName}}</clr-dg-cell>
+        <clr-dg-cell>{{cl.podIp }}</clr-dg-cell>
+        <clr-dg-cell>{{cl.namespace}}</clr-dg-cell>
+      </clr-dg-row>
+
+      <clr-dg-footer>{{cluster|json}} users</clr-dg-footer>
+    </clr-datagrid>
+    <p>But not much to say...</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
+  </div>
+</clr-modal>

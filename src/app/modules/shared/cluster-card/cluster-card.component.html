@@ -1,0 +1,39 @@
+<clr-signpost>
+  <div class="cluster-card" (click)="onCardClick()"
+    [ngClass]="{'selected': cluster.podsSelected && cluster.podsSelected.length}" clrSignpostTrigger>
+    <div class="tick-icon" *ngIf="cluster.podsSelected && cluster.podsSelected.length">
+      <clr-icon shape="success-standard" class="is-solid is-success" size="30"></clr-icon>
+    </div>
+    <div class="cluster-info-wrapper">
+      <div class="left">
+        <img class="cluster-icon" src="/assets/images/kubernetes.png" alt="kubernetes">
+      </div>
+      <div class="right">
+        <div class="title">{{cluster.clusterName}}</div>
+        <div class="pods-info">
+          <div>Nodes: <b>{{cluster.pods.length}}</b></div>
+          <div *ngIf="cluster.podsSelected">Selected Pods :
+            <b>{{cluster.podsSelected.length}}</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <clr-signpost-content *clrIfOpen class="signpost-content" [clrPosition]="signpostPosition">
+    <clr-datagrid [(clrDgSelected)]="cluster.podsSelected">
+      <clr-dg-column [clrDgField]="'podName'">Pod Name</clr-dg-column>
+      <clr-dg-column [clrDgField]="'podIp'">Pod IP</clr-dg-column>
+      <clr-dg-column [clrDgField]="'nodeName'">Node Name</clr-dg-column>
+      <clr-dg-column [clrDgField]="'namespace'">Namespace</clr-dg-column>
+
+      <clr-dg-row *clrDgItems="let pod of cluster.pods" [clrDgItem]="pod">
+        <clr-dg-cell>{{pod.podName}}</clr-dg-cell>
+        <clr-dg-cell>{{pod.podIp}}</clr-dg-cell>
+        <clr-dg-cell>{{pod.nodeName}}</clr-dg-cell>
+        <clr-dg-cell>{{pod.namespace}}</clr-dg-cell>
+      </clr-dg-row>
+    </clr-datagrid>
+    <button class="btn btn-primary" (click)="onAnalyise()">Analyze</button>
+  </clr-signpost-content>
+</clr-signpost>

@@ -1,0 +1,36 @@
+<div class="main-container">
+  <header class="header-6">
+    <div class="branding">
+      <a href="/" class="nav-link">
+        <clr-icon shape="vm-bug"></clr-icon>
+        <span class="title">Kube Intelligence</span>
+      </a>
+    </div>
+    <div class="header-nav">
+      <!-- <a href="" style="color:white;margin-top:18px">
+        <clr-icon shape="plus"></clr-icon>
+        ADD CLUSTER
+      </a> -->
+
+    </div>
+    <div class="header-actions">
+
+    </div>
+  </header>
+
+  <div class="content-container">
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed" class="left-nav-links">
+      <a clrVerticalNavLink [routerLink]="[ '/clusters' ]" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="home"></clr-icon>
+        Clusters
+      </a>
+      <a clrVerticalNavLink [routerLink]="[ '/configure' ]" routerLinkActive="active">
+        <clr-icon clrVerticalNavIcon shape="settings"></clr-icon>
+        Configure
+      </a>
+    </clr-vertical-nav>
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

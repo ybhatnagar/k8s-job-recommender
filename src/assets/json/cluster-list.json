@@ -1,0 +1,153 @@
+{
+  "cluster": [
+    
+    {
+      "clusterName": "us2.prod.cloudhealthtech.com",
+      "pods": [
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-prod",
+          "podIp": "10.112.51.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-prod2",
+          "podIp": "10.112.51.5",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        },
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        },
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        },
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        }
+      ]
+    },
+    {
+      "clusterName": "Prod-eng-services",
+      "pods": [
+        {
+          "podName": "pod-prod",
+          "nodeName": "node-prod",
+          "podIp": "10.112.51.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "pod-prod2",
+          "nodeName": "node-prod2",
+          "podIp": "10.112.51.5",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        },
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        },
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        },
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        }
+      ]
+    },
+    {
+      "clusterName": "us1-prod-eng-services",
+      "pods": [
+        {
+          "podName": "pod-prod",
+          "nodeName": "node-prod",
+          "podIp": "10.112.51.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "pod-prod2",
+          "nodeName": "node-prod2",
+          "podIp": "10.112.51.5",
+          "namespace": "vmw-costing"
+        }
+        
+      ]
+    }
+  ]
+}

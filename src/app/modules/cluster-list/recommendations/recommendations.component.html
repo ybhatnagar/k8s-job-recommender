@@ -1,0 +1,166 @@
+<h4>Strategic Workload Recommendations</h4><br>
+
+<div class="recommendations">
+  <!-- <div class="before-chart">
+    <h4>Current Clusters</h4>
+    <connection-chart [chartData]="chartBefore"></connection-chart>
+  </div>
+  <div class="divider"></div> -->
+
+
+  
+  <div class="recommendation-list" *ngFor="let rec of recommendations;let index = index;" style="width:500px">
+    <div >
+      
+        <div class="recom-class" >
+          <div class="overlay" *ngIf="rec.applied">
+            <div class="mask"></div>
+            <clr-icon shape="success-standard" size="100" class="is-success"></clr-icon>
+          </div>
+          <div style="display: flex;justify-content: space-between; border-bottom: 1px solid grey;">
+           <h5 style="margin-top:0"> <b>{{rec.pod}}</b></h5>
+
+            <clr-icon shape="times" class="clickable" (click)="recommendations.splice(index,1)"></clr-icon>
+          </div>
+          <div style="margin: 15px 0; ">
+            <div style="display: flex; justify-content: space-between; font-size: 16px">
+              <span>{{rec.currentNode}}</span>
+              <span>
+                <clr-icon shape="arrow" dir="right" size="32"></clr-icon>
+              </span>
+              <span>{{rec.recommendedNode}} <br><small>Once in every 12 hours</small> </span>
+              
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+                <span style="width:150px;height: 25px;font-size: 14px" class="badge badge-success">Cost Saving: ${{rec.costSavings}}</span>
+
+              <!-- <span>Cost Saving: <b>${{rec.costSavings}}</b>
+                <clr-icon shape="arrow" dir="up" class="is-success"></clr-icon>
+              </span> -->
+              <span>Recommended Time: <b>{{rec.latencyImprovement}}</b>
+                <!-- <clr-icon shape="arrow" dir="down" class="is-success"></clr-icon> -->
+              </span>
+            </div>
+          </div>
+          <div style="display: flex;justify-content: space-between; border-top: 1px solid grey;">
+            <button class="btn btn-link btn-sm" (click)="onRecClick(rec)">why?</button>
+            <div>
+              <button class="btn btn-sm btn-danger" (click)="recommendations.splice(index,1)">Drop</button>
+              <button class="btn btn-primary btn-sm" (click)="onApplyClick(rec)">Apply</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="divider"></div>
+  <div class="after-chart">
+    <h4>Clusters After</h4>
+    <connection-chart [chartData]="chartAfter" [allowDrag]="true"></connection-chart>
+  </div>
+</div> -->
+
+<clr-modal [(clrModalOpen)]="openRec" [clrModalSize]="'xl'">
+  <h3 class="modal-title">Why this recommendation</h3>
+  <div class="modal-body">
+    
+
+    <!-- <div class="latency-chart">
+      <latency-chart [series]="latencySeries"></latency-chart>
+    </div> -->
+
+    <div class="alert alert-info" role="alert">
+        <div class="alert-items">
+            <div class="alert-item static">
+                <div class="alert-icon-wrapper">
+                    <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+                <span class="alert-text">
+                    CPU Usage has periodic spikes of - 300% for - 25 mins every - 6 hours
+                </span>
+            </div>
+        </div>
+    </div>
+    <h4>CPU Usage By POD</h4>
+    <img class="cluster-icon" style="width:1100px" src="/assets/images/why.png" alt="kubernetes">
+
+  </div>
+
+  <div class="modal-footer">
+      <button class="btn btn-success-outline">Save & Export</button>
+
+    <button type="button" class="btn btn-outline" (click)="openRec = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="openRec = false">Ok</button>
+  </div>
+</clr-modal>
+
+
+<clr-modal [(clrModalOpen)]="openApply" [clrModalSize]="'xl'">
+  <h3 class="modal-title">
+      <div class="alert alert-success" role="alert">
+          <div class="alert-items">
+              <div class="alert-item static">
+                  <div class="alert-icon-wrapper">
+                      <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+                  </div>
+                  <span class="alert-text"> Successfully Applied Pod :<b *ngIf="appClicked"> {{appClicked.pod}}</b></span>
+              </div>
+          </div>
+      </div>
+   </h3>
+  <div class="modal-body">
+      <div class="alert alert-info" role="alert">
+          <div class="alert-items">
+              <div class="alert-item static">
+                  <div class="alert-icon-wrapper">
+                      <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                  </div>
+                  <span class="alert-text">
+                      <b>Note:</b> Analyzing the interactions, following applications interacting with vmw-benchmark2 also have similar seasonal trends at similar time.
+                    </span>
+              </div>
+          </div>
+      </div>
+      <div class="clr-row">
+          <div class="clr-col-lg-5 clr-col-md-8 clr-col-12">
+              <div class="card">
+                  <div class="card-header">
+                      <b>vmw-benchmark2</b>
+                  </div>
+                  <div class="card-block">
+                      <div class="card-title">
+                          <div >
+                              <div style="display: flex; justify-content: space-between; font-size: 18px">
+                                <span>From Deployment</span>
+                                <span>
+                                  <clr-icon shape="arrow" dir="right" size="32"></clr-icon>
+                                </span>
+                                <span>To Job<br><small>Once in every 12 hours</small> </span>
+                                
+                              </div>
+                              </div>
+                      </div>
+                      <div style="display: flex; justify-content: space-between; margin-top: 15px;">
+                          <span style="width:150px;height: 25px;font-size: 14px" class="badge badge-success">Cost Saving: $130</span>
+          
+                        <!-- <span>Cost Saving: <b>${{rec.costSavings}}</b>
+                          <clr-icon shape="arrow" dir="up" class="is-success"></clr-icon>
+                        </span> -->
+                        <span>Recommended Time: <b>5:30 PM IST</b>
+                          <!-- <clr-icon shape="arrow" dir="down" class="is-success"></clr-icon> -->
+                        </span>
+                      </div>
+                  </div>
+                  <div class="card-footer">
+                      <button class="btn btn-sm btn-link">Why?</button>
+                      <button class="btn btn-primary btn-sm" (click)="onApplyClick(rec)">Apply</button>
+                    </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  <div class="modal-footer">
+
+    <button type="button" class="btn btn-outline" (click)="openApply = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="openApply = false">Ok</button>
+  </div>
+</clr-modal>
