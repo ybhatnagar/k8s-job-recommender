@@ -1,20 +1,84 @@
 {
   "cluster": [
-    
+    {
+      "clusterName": "us1.prod.cloudhealthtech.com",
+      "pods": [
+        {
+          "podName": "vmw-costing-assets-1-231",
+          "nodeName": "node-prod-231",
+          "podIp": "10.112.51.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark1-156",
+          "nodeName": "node-prod-156",
+          "podIp": "10.112.51.5",
+          "namespace": "vmw-benchmark"
+        },
+        {
+          "podName": "vmw-costing1-200",
+          "nodeName": "node-prod-200",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2-205",
+          "nodeName": "node-prod-205",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        },
+        {
+          "podName": "vmw-costing1-207",
+          "nodeName": "node-prod-207",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        },
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark-13",
+          "nodeName": "node-prod-13",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        },
+        {
+          "podName": "vmw-costing1",
+          "nodeName": "node-stage1",
+          "podIp": "10.112.31.3",
+          "namespace": "vmw-costing"
+        },
+        {
+          "podName": "vmw-benchmark2",
+          "nodeName": "node-stage2",
+          "podIp": "10.112.31.5",
+          "namespace": "vmw-benchmark"
+        }
+      ]
+    },
     {
       "clusterName": "us2.prod.cloudhealthtech.com",
       "pods": [
         {
-          "podName": "vmw-costing1",
+          "podName": "mdr-web-server2-110",
           "nodeName": "node-prod",
           "podIp": "10.112.51.3",
-          "namespace": "vmw-costing"
+          "namespace": "mdr-web-server2-110"
         },
         {
-          "podName": "vmw-benchmark2",
-          "nodeName": "node-prod2",
-          "podIp": "10.112.51.5",
-          "namespace": "vmw-costing"
+          "podName": "mdr-web-server1-10",
+          "nodeName": "node-prod",
+          "podIp": "10.112.51.3",
+          "namespace": "mdr-web-server1-10"
         },
         {
           "podName": "vmw-costing1",
@@ -67,86 +131,20 @@
       ]
     },
     {
-      "clusterName": "Prod-eng-services",
+      "clusterName": "us1.staging.cloudhealthtech.com",
       "pods": [
         {
-          "podName": "pod-prod",
+          "podName": "mdr-web-server1-10",
           "nodeName": "node-prod",
           "podIp": "10.112.51.3",
-          "namespace": "vmw-costing"
+          "namespace": "mdr-web-server1-10"
         },
         {
-          "podName": "pod-prod2",
-          "nodeName": "node-prod2",
-          "podIp": "10.112.51.5",
-          "namespace": "vmw-costing"
-        },
-        {
-          "podName": "vmw-costing1",
-          "nodeName": "node-stage1",
-          "podIp": "10.112.31.3",
-          "namespace": "vmw-costing"
-        },
-        {
-          "podName": "vmw-benchmark2",
-          "nodeName": "node-stage2",
-          "podIp": "10.112.31.5",
-          "namespace": "vmw-benchmark"
-        },
-        {
-          "podName": "vmw-costing1",
-          "nodeName": "node-stage1",
-          "podIp": "10.112.31.3",
-          "namespace": "vmw-costing"
-        },
-        {
-          "podName": "vmw-benchmark2",
-          "nodeName": "node-stage2",
-          "podIp": "10.112.31.5",
-          "namespace": "vmw-benchmark"
-        },
-        {
-          "podName": "vmw-costing1",
-          "nodeName": "node-stage1",
-          "podIp": "10.112.31.3",
-          "namespace": "vmw-costing"
-        },
-        {
-          "podName": "vmw-benchmark2",
-          "nodeName": "node-stage2",
-          "podIp": "10.112.31.5",
-          "namespace": "vmw-benchmark"
-        },
-        {
-          "podName": "vmw-costing1",
-          "nodeName": "node-stage1",
-          "podIp": "10.112.31.3",
-          "namespace": "vmw-costing"
-        },
-        {
-          "podName": "vmw-benchmark2",
-          "nodeName": "node-stage2",
-          "podIp": "10.112.31.5",
-          "namespace": "vmw-benchmark"
-        }
-      ]
-    },
-    {
-      "clusterName": "us1-prod-eng-services",
-      "pods": [
-        {
-          "podName": "pod-prod",
+          "podName": "mdr-web-server2-110",
           "nodeName": "node-prod",
           "podIp": "10.112.51.3",
-          "namespace": "vmw-costing"
-        },
-        {
-          "podName": "pod-prod2",
-          "nodeName": "node-prod2",
-          "podIp": "10.112.51.5",
-          "namespace": "vmw-costing"
+          "namespace": "mdr-web-server2-110"
         }
-        
       ]
     }
   ]

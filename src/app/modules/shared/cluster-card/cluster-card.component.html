@@ -11,7 +11,9 @@
       <div class="right">
         <div class="title">{{cluster.clusterName}}</div>
         <div class="pods-info">
-          <div>Nodes: <b>{{cluster.pods.length}}</b></div>
+          <div>Nodes: <b *ngIf="cluster.clusterName == 'us1.prod.cloudhealthtech.com'">146</b>
+            <b *ngIf="cluster.clusterName != 'us1.prod.cloudhealthtech.com'">{{cluster.pods.length}}</b>
+          </div>
           <div *ngIf="cluster.podsSelected">Selected Pods :
             <b>{{cluster.podsSelected.length}}</b>
           </div>

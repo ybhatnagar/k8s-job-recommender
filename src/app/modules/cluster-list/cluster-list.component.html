@@ -19,8 +19,10 @@
   </div>
 
 
-  <button class="btn btn-primary" [disabled]="!isSelected()" (click)="openConfiguration = true" >Strategic Workload choreography</button>
-  <button class="btn btn-primary" [disabled]="!isSelected()" (click)="openMaintenance = true">Maintenance Interval</button>
+  <button class="btn btn-primary" [disabled]="!isSelected()" (click)="openConfiguration = true">Strategic Workload
+    choreography</button>
+  <button class="btn btn-primary" [disabled]="!isSelected()" (click)="openMaintenance = true">Maintenance
+    Interval</button>
   <button class="btn btn-primary" [disabled]="true" (click)="onAnalyise()">Anomaly Detection (Coming soon)</button>
 
 </div>
@@ -50,21 +52,27 @@
 </clr-modal>
 
 <clr-modal [(clrModalOpen)]="openMaintenance">
-    <h3 class="modal-title">How much time your maintenance will need?</h3>
-    <div class="modal-body">
-      <form clrForm>
-        
-        <clr-input-container>
-          <label class="clr-col-md-4">Maintenance Time</label>
-          <input clrInput placeholder="30 Mins" name="usname" [(ngModel)]="usname" />
-        </clr-input-container>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline" (click)="openMaintenance = false">Cancel</button>
-      <button type="button" class="btn btn-primary" (click)="onMaintain()">Analyze</button>
-    </div>
-  </clr-modal>
+  <h3 class="modal-title">Details for Maintenance Activity</h3>
+  <div class="modal-body" class="modal-dialog modal-xl">
+    <form clrForm>
+
+      <clr-input-container>
+        <label class="clr-col-md-4">Duration of Maintenance</label>
+        <input clrInput placeholder="30 Mins" name="usname" [(ngModel)]="usname" />
+
+      </clr-input-container>
+      <clr-input-container>
+        <label class="clr-col-md-4">By when you want to perform maintenance?</label>
+        <input clrInput placeholder="Days" name="days1" [(ngModel)]="usname" />
+      </clr-input-container>
+
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="openMaintenance = false">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="onMaintain()">Analyze</button>
+  </div>
+</clr-modal>
 <div class="modal-dialog modal-xl">
   <clr-modal [(clrModalOpen)]="openConfiguration">
     <h3 class="modal-title">Add Configuration</h3>
@@ -113,13 +121,13 @@
           <input type="date" clrDate name="demo" [(ngModel)]="demo">
         </clr-date-container>
         <clr-input-container>
-          <label class="clr-col-md-4">Threshold Seasonality Accuracy</label>
+          <label class="clr-col-md-4">Threshold Seasonality Period</label>
           <input clrInput placeholder="Hour/Min/Day" name="pass" [(ngModel)]="pass" />
         </clr-input-container>
-        <clr-input-container>
+        <!-- <clr-input-container>
           <label class="clr-col-md-4">Threshold Confidence</label>
           <input clrInput placeholder="80%" name="pass" [(ngModel)]="pass" />
-        </clr-input-container>
+        </clr-input-container> -->
       </form>
     </div>
     <div class="modal-footer">
